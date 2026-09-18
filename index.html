@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Drawing Portfolio</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #fafafa;
@@ -15,43 +19,73 @@
             flex-direction: column;
             align-items: center;
         }
+
         header {
             text-align: center;
             max-width: 600px;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
         }
+
         h1 {
             margin: 0 0 10px 0;
             font-size: 2.5rem;
         }
+
         p {
             color: #666;
             font-size: 1.1rem;
             margin: 0;
         }
+
         .gallery {
             width: 100%;
             max-width: 1000px;
-            display: flex;
-            justify-content: center;
         }
+
         .card {
-            background: #fff;
-            border-radius: 8px;
+            position: relative;
+            min-height: clamp(420px, 70vw, 700px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-            width: 100%;
-            max-width: 700px;
-            margin: 0;
+            border-radius: 8px;
+            background-color: #fff;
+            background-image: url("gert-lush-cuach.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        .card:hover {
-            transform: translateY(-4px);
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.35);
         }
-        .card img {
-            width: 100%;
-            height: auto;
-            display: block;
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+            max-width: 520px;
+            padding: 28px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.82);
+            border-radius: 8px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(2px);
+        }
+
+        .card-content h2 {
+            margin: 0 0 10px;
+            font-size: 1.7rem;
+        }
+
+        .card-content p {
+            color: #444;
         }
     </style>
 </head>
@@ -62,9 +96,12 @@
     </header>
 
     <main class="gallery">
-        <figure class="card">
-            <img src="gert-lush-cuach.svg" alt="Real-time Sketch 1">
-        </figure>
+        <section class="card" aria-label="Real-time Sketch 1">
+            <div class="card-content">
+                <h2>Real-time Sketch 1</h2>
+                <p>A live drawing captured in the moment.</p>
+            </div>
+        </section>
     </main>
 </body>
 </html>
