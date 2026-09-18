@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laura Howard | Art Portfolio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
         * { box-sizing: border-box; }
         :root { --ink: #292724; --paper: #f7f3ee; --accent: #f4c92e; }
@@ -14,7 +14,14 @@
         body::before { content: ""; position: fixed; inset: 0; z-index: 0; background: url("gert-lush-cuach.svg") center / cover no-repeat; }
         .content { position: relative; z-index: 1; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 48px 20px; pointer-events: none; }
         header { width: min(700px, 100%); padding: 20px 22px; border-radius: 12px; background: rgba(255,255,255,.28); backdrop-filter: blur(1px); }
-        h1 { margin: 0 0 10px; font-family: "Parisienne", "Segoe Script", "Bradley Hand", cursive; font-size: clamp(3rem, 7vw, 6rem); line-height: 1; letter-spacing: 0.02em; font-weight: 400; text-shadow: 0 1px 0 rgba(255,255,255,.5); }
+        .signature { position: relative; display: inline-block; max-width: 100%; }
+        h1 { margin: 0 0 10px; font-family: "Great Vibes", "Segoe Script", "Bradley Hand", cursive; font-size: clamp(3.4rem, 8vw, 6.5rem); line-height: 1; letter-spacing: 0.02em; font-weight: 400; text-shadow: 0 1px 0 rgba(255,255,255,.5); }
+        .signature-frond { position: absolute; width: 100px; height: 105px; overflow: visible; fill: none; stroke: var(--ink); stroke-linecap: round; stroke-linejoin: round; pointer-events: none; opacity: .72; }
+        .signature-frond path { stroke-width: 1.7; transform-box: fill-box; transform-origin: bottom center; animation: frond-breathe 5s ease-in-out infinite; }
+        .signature-frond ellipse { fill: rgba(41,39,36,.14); stroke-width: 1.2; transform-box: fill-box; transform-origin: center; animation: leaf-breathe 5s ease-in-out infinite; }
+        .frond-left { left: -78px; bottom: 2px; transform: rotate(-18deg); }
+        .frond-right { right: -78px; top: -34px; transform: scaleX(-1) rotate(-18deg); animation-delay: -2.4s; }
+        .frond-right path, .frond-right ellipse { animation-delay: -2.4s; }
         p { margin: 0; color: rgba(34,34,34,.8); font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.5; }
         .artwork-hit-area { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
         .formwork-link { pointer-events: auto; cursor: pointer; outline: none; }
@@ -30,12 +37,14 @@
         @keyframes outline-drift { to { stroke-dashoffset: -60; } }
         @keyframes outline-breathe { 0%, 100% { opacity: .7; } 50% { opacity: 1; } }
         @keyframes hint-breathe { 0%, 100% { opacity: .7; } 50% { opacity: 1; } }
-        @media (prefers-reduced-motion: reduce) { .discover-outline, .discover-hint { animation: none; } }
-        @media (max-width: 700px) { .formwork-label { font-size: 18px; } .discover-hint { font-size: 13px; } }
+        @keyframes frond-breathe { 0%, 100% { transform: rotate(-2deg) scaleY(.86); } 50% { transform: rotate(4deg) scaleY(1); } }
+        @keyframes leaf-breathe { 0%, 100% { opacity: .55; transform: scale(.82); } 50% { opacity: .95; transform: scale(1); } }
+        @media (prefers-reduced-motion: reduce) { .discover-outline, .discover-hint, .signature-frond path, .signature-frond ellipse { animation: none; } }
+        @media (max-width: 700px) { .formwork-label { font-size: 18px; } .discover-hint { font-size: 13px; } .frond-left { left: -58px; } .frond-right { right: -58px; } }
     </style>
 </head>
 <body>
-    <div class="content"><header><h1>Laura Howard</h1><p>Welcome to the flag house, here are my drawings, sketches as well as real and digital art pieces.</p></header></div>
+    <div class="content"><header><div class="signature"><h1>Laura Howard</h1><svg class="signature-frond frond-left" viewBox="0 0 100 105" aria-hidden="true"><path d="M 84 102 C 70 76, 40 48, 16 12" /><ellipse cx="25" cy="30" rx="7" ry="3" transform="rotate(-48 25 30)" /><ellipse cx="39" cy="47" rx="8" ry="3" transform="rotate(-42 39 47)" /><ellipse cx="55" cy="65" rx="7" ry="3" transform="rotate(-35 55 65)" /></svg><svg class="signature-frond frond-right" viewBox="0 0 100 105" aria-hidden="true"><path d="M 84 102 C 70 76, 40 48, 16 12" /><ellipse cx="25" cy="30" rx="7" ry="3" transform="rotate(-48 25 30)" /><ellipse cx="39" cy="47" rx="8" ry="3" transform="rotate(-42 39 47)" /><ellipse cx="55" cy="65" rx="7" ry="3" transform="rotate(-35 55 65)" /></svg></div><p>Welcome to the flag house, here are my drawings, sketches as well as real and digital art pieces.</p></header></div>
 
     <svg class="artwork-hit-area" viewBox="0 0 1876.8950121543276 1440" preserveAspectRatio="xMidYMid slice" aria-label="Interactive ĊUAĊ shape">
         <a class="formwork-link" href="formwork.html" aria-label="Open ĊUAĊ page">
