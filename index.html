@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Drawing Portfolio</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         html, body {
             margin: 0;
@@ -21,18 +19,14 @@
         body {
             min-height: 100vh;
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
         body::before {
             content: "";
             position: fixed;
             inset: 0;
-            background-image: url("gert-lush-cuach.svg");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            opacity: 1;
+            background: url("gert-lush-cuach.svg") center / cover no-repeat;
             z-index: 0;
         }
 
@@ -44,6 +38,7 @@
             align-items: flex-start;
             justify-content: center;
             padding: 48px 20px;
+            pointer-events: none;
         }
 
         header {
@@ -56,7 +51,7 @@
         }
 
         h1 {
-            margin: 0 0 10px 0;
+            margin: 0 0 10px;
             font-size: clamp(2.2rem, 5vw, 4rem);
             line-height: 1.05;
             letter-spacing: -0.04em;
@@ -70,63 +65,53 @@
             line-height: 1.5;
         }
 
-        .shape-link {
+        .artwork-hit-area {
             position: fixed;
-            left: 3vw;
-            bottom: 4vh;
-            width: clamp(150px, 24vw, 340px);
-            height: clamp(120px, 20vw, 260px);
+            inset: 0;
+            width: 100%;
+            height: 100%;
             z-index: 2;
-            text-decoration: none;
-            border-radius: 48% 52% 42% 58% / 58% 44% 56% 42%;
-            background: rgba(120, 120, 120, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
-            transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-            cursor: pointer;
-        }
-
-        .shape-link::after {
-            content: "Explore this sketch";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) scale(0.96);
-            padding: 0.65rem 0.9rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.88);
-            color: #222;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            opacity: 0;
-            transition: opacity 180ms ease, transform 180ms ease;
-            white-space: nowrap;
             pointer-events: none;
         }
 
-        .shape-link:hover,
-        .shape-link:focus-visible {
-            background: rgba(120, 120, 120, 0.18);
-            transform: scale(1.04);
-            box-shadow:
-                0 0 0 4px rgba(255, 255, 255, 0.7),
-                0 0 0 8px rgba(70, 70, 70, 0.18),
-                inset 0 0 0 1px rgba(255,255,255,0.2);
+        .formwork-link {
+            pointer-events: auto;
+            cursor: pointer;
+            text-decoration: none;
+            outline: none;
         }
 
-        .shape-link:hover::after,
-        .shape-link:focus-visible::after {
+        .formwork-shape {
+            fill: rgba(110, 110, 110, 0.1);
+            stroke: transparent;
+            stroke-width: 10;
+            transition: fill 180ms ease, stroke 180ms ease, filter 180ms ease;
+        }
+
+        .formwork-link:hover .formwork-shape,
+        .formwork-link:focus-visible .formwork-shape {
+            fill: rgba(255, 214, 88, 0.4);
+            stroke: rgba(255, 255, 255, 0.9);
+            filter: drop-shadow(0 0 8px rgba(255, 214, 88, 0.8));
+        }
+
+        .formwork-label {
+            opacity: 0;
+            font: 700 26px/1 sans-serif;
+            fill: #1a1a1a;
+            text-anchor: middle;
+            transition: opacity 180ms ease;
+            pointer-events: none;
+        }
+
+        .formwork-link:hover .formwork-label,
+        .formwork-link:focus-visible .formwork-label {
             opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
         }
 
         @media (max-width: 700px) {
-            .shape-link {
-                left: 1vw;
-                bottom: 2vh;
-                width: 42vw;
-                height: 28vw;
+            .formwork-label {
+                font-size: 18px;
             }
         }
     </style>
@@ -139,11 +124,13 @@
         </header>
     </div>
 
-    <a
-        class="shape-link"
-        href="formwork.html"
-        aria-label="Open the gray shape sketch page"
-        title="Open the gray shape sketch page"
-    ></a>
+    <svg class="artwork-hit-area" viewBox="0 0 1876.8950121543276 1440" preserveAspectRatio="xMidYMid slice" aria-label="Interactive formwork shape">
+        <a class="formwork-link" href="formwork.html" aria-label="Open Formwork page">
+            <title>Open Formwork</title>
+            <polygon class="formwork-shape" points="604.08,1040 724.08,950 1020.08,950 1040.08,1120 860.08,1260 640.08,1260 540.08,1120" />
+            <polygon class="formwork-shape" points="640.08,1260 860.08,1260 940.08,1160 780.08,1100 604.08,1040 540.08,1120" />
+            <text class="formwork-label" x="780" y="1120">build</text>
+        </a>
+    </svg>
 </body>
 </html>
