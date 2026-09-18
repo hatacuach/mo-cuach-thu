@@ -7,16 +7,17 @@
   <style>
     * { box-sizing: border-box; }
     :root { --paper: #f7f3ee; --ink: #292724; --muted: #68635d; --line: rgba(41,39,36,.18); --yellow: #f4c92e; --orange: #f39c12; }
-    body { margin: 0; min-height: 100vh; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--paper); }
-    .page { width: min(1180px, 100%); margin: auto; padding: clamp(1.25rem, 4vw, 4rem); }
+    html, body { margin: 0; min-height: 100%; }
+    body { min-height: 100vh; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--paper); position: relative; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 0; background: url("graph.svg") center / cover no-repeat; opacity: .24; pointer-events: none; }
+    .page { position: relative; z-index: 1; width: min(1180px, 100%); margin: auto; padding: clamp(1.25rem, 4vw, 4rem); }
     nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: clamp(3rem, 9vw, 8rem); }
     nav a, .back { color: var(--ink); text-decoration: none; font-weight: 700; }
     .eyebrow { margin: 0 0 1rem; color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
     h1 { max-width: 760px; margin: 0; font-size: clamp(4rem, 14vw, 11rem); line-height: .8; letter-spacing: -.08em; font-weight: 700; }
     .intro { display: grid; grid-template-columns: 1.3fr .7fr; gap: clamp(2rem, 8vw, 8rem); align-items: end; margin-bottom: clamp(4rem, 10vw, 9rem); }
     .intro p { max-width: 30rem; margin: 0 0 .4rem; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.55; }
-    .study { min-height: 420px; display: grid; place-items: center; margin-bottom: 2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; background: rgba(255,255,255,.25); }
-    .study img { display: block; width: min(720px, 90%); height: auto; max-height: 390px; object-fit: contain; }
+    .study { display: none; }
     .details { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; border-bottom: 1px solid var(--line); padding-bottom: 2rem; }
     .details div { padding-top: 1rem; border-top: 2px solid var(--ink); }
     .details strong { display: block; margin-bottom: .5rem; font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; }
@@ -24,7 +25,7 @@
     .commission-button { display: inline-block; margin-top: .75rem; padding: .65rem .9rem; border: 1px solid var(--orange); border-radius: 999px; background: rgba(243,156,18,.1); color: var(--ink); text-decoration: none; font-weight: 700; transition: background .18s ease, color .18s ease, transform .18s ease; }
     .commission-button:hover, .commission-button:focus-visible { background: var(--orange); color: #fff; transform: translateY(-2px); }
     .back { display: inline-block; margin-top: 2rem; }
-    @media (max-width: 700px) { .intro, .details { grid-template-columns: 1fr; } .intro { gap: 2rem; } .study { min-height: 300px; } .study img { max-height: 270px; } }
+    @media (max-width: 700px) { .intro, .details { grid-template-columns: 1fr; } .intro { gap: 2rem; } }
   </style>
 </head>
 <body>
