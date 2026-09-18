@@ -6,130 +6,42 @@
     <title>My Drawing Portfolio</title>
     <style>
         * { box-sizing: border-box; }
+        :root { --ink: #292724; --paper: #f7f3ee; --accent: #f4c92e; }
+        html, body { margin: 0; min-height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); }
+        body { min-height: 100vh; overflow: hidden; position: relative; }
+        body::before { content: ""; position: fixed; inset: 0; z-index: 0; background: url("gert-lush-cuach.svg") center / cover no-repeat; }
+        .content { position: relative; z-index: 1; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 48px 20px; pointer-events: none; }
+        header { width: min(700px, 100%); padding: 20px 22px; border-radius: 12px; background: rgba(255,255,255,.28); backdrop-filter: blur(1px); }
+        h1 { margin: 0 0 10px; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.05; letter-spacing: -.04em; }
+        p { margin: 0; color: rgba(34,34,34,.8); font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.5; }
 
-        html, body {
-            margin: 0;
-            width: 100%;
-            min-height: 100%;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: #f7f3ee;
-            color: #222;
-        }
-
-        body {
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: url("gert-lush-cuach.svg") center / cover no-repeat;
-            z-index: 0;
-        }
-
-        .content {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 48px 20px;
-            pointer-events: none;
-        }
-
-        header {
-            width: min(700px, 100%);
-            text-align: left;
-            background: rgba(255, 255, 255, 0.28);
-            backdrop-filter: blur(1px);
-            border-radius: 12px;
-            padding: 20px 22px;
-        }
-
-        h1 {
-            margin: 0 0 10px;
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            line-height: 1.05;
-            letter-spacing: -0.04em;
-            font-weight: 700;
-        }
-
-        p {
-            margin: 0;
-            color: rgba(34, 34, 34, 0.8);
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            line-height: 1.5;
-        }
-
-        .artwork-hit-area {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .formwork-link {
-            pointer-events: auto;
-            cursor: pointer;
-            text-decoration: none;
-            outline: none;
-        }
-
-        .formwork-shape {
-            fill: rgba(110, 110, 110, 0.1);
-            stroke: transparent;
-            stroke-width: 10;
-            transition: fill 180ms ease, stroke 180ms ease, filter 180ms ease;
-        }
-
-        .formwork-link:hover .formwork-shape,
-        .formwork-link:focus-visible .formwork-shape {
-            fill: rgba(255, 214, 88, 0.4);
-            stroke: rgba(255, 255, 255, 0.9);
-            filter: drop-shadow(0 0 8px rgba(255, 214, 88, 0.8));
-        }
-
-        .formwork-label {
-            opacity: 0;
-            font: 700 26px/1 sans-serif;
-            fill: #1a1a1a;
-            text-anchor: middle;
-            transition: opacity 180ms ease;
-            pointer-events: none;
-        }
-
-        .formwork-link:hover .formwork-label,
-        .formwork-link:focus-visible .formwork-label {
-            opacity: 1;
-        }
-
-        @media (max-width: 700px) {
-            .formwork-label {
-                font-size: 18px;
-            }
-        }
+        /* This uses the SVG's own 1876.895 × 1440 coordinate system. The original
+           formwork geometry is the path at x=600–900, y=660–840 translated by
+           (-55.920823, 360), so the overlay follows the real angular edges. */
+        .artwork-hit-area { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+        .formwork-link { pointer-events: auto; cursor: pointer; outline: none; }
+        .formwork-face { fill: rgba(110,110,110,.025); stroke: transparent; stroke-width: 8; vector-effect: non-scaling-stroke; transition: fill .18s ease, stroke .18s ease, filter .18s ease; }
+        .formwork-edge { fill: none; stroke: transparent; stroke-width: 18; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+        .formwork-link:hover .formwork-face, .formwork-link:focus-visible .formwork-face { fill: rgba(244,201,46,.38); stroke: rgba(255,255,255,.95); filter: drop-shadow(0 0 8px rgba(244,201,46,.9)); }
+        .formwork-link:hover .formwork-edge, .formwork-link:focus-visible .formwork-edge { stroke: rgba(244,201,46,.5); }
+        .formwork-label { opacity: 0; pointer-events: none; font: 700 24px/1 sans-serif; fill: var(--ink); text-anchor: middle; transition: opacity .18s ease; }
+        .formwork-link:hover .formwork-label, .formwork-link:focus-visible .formwork-label { opacity: 1; }
+        @media (max-width: 700px) { .formwork-label { font-size: 18px; } }
     </style>
 </head>
 <body>
-    <div class="content">
-        <header>
-            <h1>My Sketch Portfolio</h1>
-            <p>Welcome! Here are my live drawings, sketches, and digital art pieces created in real-time.</p>
-        </header>
-    </div>
+    <div class="content"><header><h1>My Sketch Portfolio</h1><p>Welcome! Here are my live drawings, sketches, and digital art pieces created in real-time.</p></header></div>
 
     <svg class="artwork-hit-area" viewBox="0 0 1876.8950121543276 1440" preserveAspectRatio="xMidYMid slice" aria-label="Interactive formwork shape">
         <a class="formwork-link" href="formwork.html" aria-label="Open Formwork page">
-            <title>Open Formwork</title>
-            <polygon class="formwork-shape" points="604.08,1040 724.08,950 1020.08,950 1040.08,1120 860.08,1260 640.08,1260 540.08,1120" />
-            <polygon class="formwork-shape" points="640.08,1260 860.08,1260 940.08,1160 780.08,1100 604.08,1040 540.08,1120" />
-            <text class="formwork-label" x="780" y="1120">build</text>
+            <title>Build: open Formwork</title>
+            <g transform="translate(-55.92082320472713 360)">
+                <!-- Exact faces derived from the SVG's lower-left formwork path. -->
+                <path class="formwork-face" d="M 600 780 L 660 660 L 900 660 L 660 780 Z" />
+                <path class="formwork-face" d="M 660 780 L 900 660 L 900 720 L 660 840 Z" />
+                <path class="formwork-edge" d="M 600 780 L 660 660 L 900 660 L 660 780 L 660 840 L 900 720 L 900 660" />
+                <text class="formwork-label" x="755" y="755">build</text>
+            </g>
         </a>
     </svg>
 </body>
