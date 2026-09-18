@@ -32,12 +32,12 @@
         .formwork-link:hover .formwork-edge, .formwork-link:focus-visible .formwork-edge { stroke: rgba(244,201,46,.5); }
         .formwork-label { opacity: 0; pointer-events: none; font: 700 24px/1 sans-serif; fill: var(--ink); text-anchor: middle; transition: opacity .18s ease; }
         .formwork-link:hover .formwork-label, .formwork-link:focus-visible .formwork-label { opacity: 1; }
-        .discover-outline { fill: none; stroke: rgba(244,201,46,.72); stroke-width: 4; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 18 12; opacity: .62; pointer-events: none; animation: outline-drift 5s linear infinite, outline-breathe 3.5s ease-in-out infinite; }
-        .discover-hint { fill: var(--ink); font: 600 16px/1 sans-serif; letter-spacing: .04em; text-anchor: middle; opacity: .72; pointer-events: none; animation: hint-breathe 3.5s ease-in-out infinite; }
+        .discover-outline { fill: none; stroke: url(#iridescent-outline); stroke-width: 5; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 18 12; opacity: .82; pointer-events: none; filter: url(#neon-glow); animation: outline-drift 5s linear infinite, outline-breathe 3.5s ease-in-out infinite; }
+        .discover-hint { fill: url(#iridescent-text); font: 600 16px/1 sans-serif; letter-spacing: .04em; text-anchor: middle; opacity: .78; pointer-events: none; filter: url(#soft-glow); animation: hint-breathe 3.5s ease-in-out infinite; }
         .formwork-link:hover .discover-outline, .formwork-link:focus-visible .discover-outline, .formwork-link:hover .discover-hint, .formwork-link:focus-visible .discover-hint { opacity: 0; animation-play-state: paused; transition: opacity .18s ease; }
         @keyframes outline-drift { to { stroke-dashoffset: -60; } }
-        @keyframes outline-breathe { 0%, 100% { opacity: .4; } 50% { opacity: .78; } }
-        @keyframes hint-breathe { 0%, 100% { opacity: .5; } 50% { opacity: .82; } }
+        @keyframes outline-breathe { 0%, 100% { opacity: .48; } 50% { opacity: .95; } }
+        @keyframes hint-breathe { 0%, 100% { opacity: .58; } 50% { opacity: .9; } }
         @media (prefers-reduced-motion: reduce) { .discover-outline, .discover-hint { animation: none; } }
         @media (max-width: 700px) { .formwork-label { font-size: 18px; } .discover-hint { font-size: 13px; } }
     </style>
@@ -46,6 +46,30 @@
     <div class="content"><header><h1>Laura Howard</h1><p>Welcome, here are my drawings, sketches as well as real and digital art pieces.</p></header></div>
 
     <svg class="artwork-hit-area" viewBox="0 0 1876.8950121543276 1440" preserveAspectRatio="xMidYMid slice" aria-label="Interactive ĊUAĊ shape">
+        <defs>
+            <linearGradient id="iridescent-outline" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f5ff" />
+                <stop offset="32%" stop-color="#7dff6a" />
+                <stop offset="62%" stop-color="#fff04a" />
+                <stop offset="82%" stop-color="#ff65d8" />
+                <stop offset="100%" stop-color="#8a7dff" />
+                <animate attributeName="x1" values="0%;100%;0%" dur="7s" repeatCount="indefinite" />
+                <animate attributeName="x2" values="100%;0%;100%" dur="7s" repeatCount="indefinite" />
+            </linearGradient>
+            <linearGradient id="iridescent-text" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#00aeb8" />
+                <stop offset="45%" stop-color="#b100c9" />
+                <stop offset="100%" stop-color="#ec8b00" />
+            </linearGradient>
+            <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+            </filter>
+            <filter id="soft-glow" x="-30%" y="-50%" width="160%" height="200%">
+                <feGaussianBlur stdDeviation="1.5" result="blur" />
+                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+            </filter>
+        </defs>
         <a class="formwork-link" href="formwork.html" aria-label="Open ĊUAĊ page">
             <title>ĊUAĊ: open Formwork</title>
             <g transform="translate(-55.92082320472713 360)">
