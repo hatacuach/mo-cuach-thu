@@ -9,99 +9,74 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fafafa;
-            color: #222;
+        html, body {
             margin: 0;
-            padding: 40px 20px;
+            width: 100%;
+            min-height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f7f3ee;
+            color: #222;
+        }
+
+        body {
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url("gert-lush-cuach.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 48px 20px;
         }
 
         header {
-            text-align: center;
-            max-width: 600px;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
+            width: min(700px, 100%);
+            text-align: left;
+            background: rgba(255, 255, 255, 0.28);
+            backdrop-filter: blur(1px);
+            border-radius: 12px;
+            padding: 20px 22px;
         }
 
         h1 {
             margin: 0 0 10px 0;
-            font-size: 2.5rem;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            font-weight: 700;
         }
 
         p {
-            color: #666;
-            font-size: 1.1rem;
             margin: 0;
-        }
-
-        .gallery {
-            width: 100%;
-            max-width: 1000px;
-        }
-
-        .card {
-            position: relative;
-            min-height: clamp(420px, 70vw, 700px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border-radius: 8px;
-            background-color: #fff;
-            background-image: url("gert-lush-cuach.svg");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.35);
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 1;
-            max-width: 520px;
-            padding: 28px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.82);
-            border-radius: 8px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(2px);
-        }
-
-        .card-content h2 {
-            margin: 0 0 10px;
-            font-size: 1.7rem;
-        }
-
-        .card-content p {
-            color: #444;
+            color: rgba(34, 34, 34, 0.8);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>My Sketch Portfolio</h1>
-        <p>Welcome! Here are my live drawings, sketches, and digital art pieces created in real-time.</p>
-    </header>
-
-    <main class="gallery">
-        <section class="card" aria-label="Real-time Sketch 1">
-            <div class="card-content">
-                <h2>Real-time Sketch 1</h2>
-                <p>A live drawing captured in the moment.</p>
-            </div>
-        </section>
-    </main>
+    <div class="content">
+        <header>
+            <h1>My Sketch Portfolio</h1>
+            <p>Welcome! Here are my live drawings, sketches, and digital art pieces created in real-time.</p>
+        </header>
+    </div>
 </body>
 </html>
