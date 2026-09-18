@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cuac crochet art gallery by Laura Howard." />
+  <title>Gallery | Cuac Crochet — Laura Howard</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root { --paper: #f7f3ee; --ink: #292724; --muted: #68635d; --yellow: #f4c92e; --orange: #f39c12; }
+    html, body { margin: 0; min-height: 100%; }
+    body { color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--paper); }
+    body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: url("graph.svg") center / cover no-repeat; opacity: .16; }
+    main { width: min(1240px, 100%); margin: auto; padding: clamp(1.25rem, 4vw, 4rem); }
+    nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: clamp(3rem, 8vw, 6rem); }
+    nav a { color: var(--ink); font-weight: 700; text-decoration: none; }
+    .eyebrow { color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { max-width: 800px; margin: 0 0 1rem; color: #5d7565; font-family: Georgia, serif; font-size: clamp(3.5rem, 10vw, 8rem); font-weight: 400; line-height: .95; }
+    .intro { max-width: 40rem; margin-bottom: clamp(3rem, 8vw, 6rem); color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.55; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1.25rem; }
+    figure { margin: 0; overflow: hidden; border: 1px solid rgba(41,39,36,.16); background: rgba(255,255,255,.58); box-shadow: 0 10px 30px rgba(41,39,36,.08); }
+    figure img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; transition: transform .25s ease; }
+    figure:hover img { transform: scale(1.035); }
+    figcaption { padding: 1rem; }
+    figcaption strong { display: block; margin-bottom: .35rem; font-size: .86rem; letter-spacing: .08em; text-transform: uppercase; }
+    figcaption span { color: var(--muted); font-size: .9rem; }
+    .back { display: inline-block; margin-top: 3rem; color: var(--ink); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="index.html">← Flagship</a><span class="eyebrow">Cuac / Crochet / Recent uploads</span></nav>
+    <h1>Image gallery</h1>
+    <p class="intro">A growing archive of recent work by Laura Howard. Every image is tagged with the Cuac, crochet, hat, Laura, and Howard keywords for a clearer, more discoverable collection.</p>
+    <section class="gallery" aria-label="Recent Cuac crochet artwork">
+      <figure><img src="06a5a84e-396b-43a8-ab5e-a27eb0da4aaf.jpeg" alt="Cuac crochet hat artwork by Laura Howard" loading="lazy"><figcaption><strong>Cuac crochet hat</strong><span>Laura Howard · recent upload</span></figcaption></figure>
+      <figure><img src="10dff3fd-20db-4561-90f5-2160d22acf76.jpeg" alt="Cuac crochet artwork by Laura Howard" loading="lazy"><figcaption><strong>Cuac crochet study</strong><span>Laura Howard · recent upload</span></figcaption></figure>
+      <figure><img src="18b7cc92-d3a5-4847-a474-3e7443984313.jpeg" alt="Cuac hat illustration by Laura Howard" loading="lazy"><figcaption><strong>Cuac hat illustration</strong><span>Laura Howard · recent upload</span></figcaption></figure>
+      <figure><img src="IMG_0627.jpeg" alt="Crochet and hat artwork by Laura Howard" loading="lazy"><figcaption><strong>Crochet / hat sketch</strong><span>Laura Howard · recent upload</span></figcaption></figure>
+      <figure><img src="IMG_0634.jpeg" alt="Cuac crochet sketch by Laura Howard" loading="lazy"><figcaption><strong>Cuac crochet sketch</strong><span>Laura Howard · recent upload</span></figcaption></figure>
+      <figure><img src="IMG_0676.jpeg" alt="Laura Howard Cuac artwork" loading="lazy"><figcaption><strong>Laura Howard / Cuac</strong><span>Recent upload</span></figcaption></figure>
+      <figure><img src="a202b79b-8635-4f3c-83cd-ed1140d689ab.jpeg" alt="Cuac crochet hat artwork by Laura Howard" loading="lazy"><figcaption><strong>Crochet hat study</strong><span>Laura Howard · recent upload</span></figcaption></figure>
+      <figure><img src="ee9dc7e5-e1d1-46a9-925b-1f718e30dfd6.jpeg" alt="Cuac crochet artwork by Laura Howard" loading="lazy"><figcaption><strong>Cuac visual experiment</strong><span>Laura Howard · recent upload</span></figcaption></figure>
+    </section>
+    <a class="back" href="index.html">Back to the landing page →</a>
+  </main>
+</body>
+</html>
