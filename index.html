@@ -32,7 +32,14 @@
         .formwork-link:hover .formwork-edge, .formwork-link:focus-visible .formwork-edge { stroke: rgba(244,201,46,.5); }
         .formwork-label { opacity: 0; pointer-events: none; font: 700 24px/1 sans-serif; fill: var(--ink); text-anchor: middle; transition: opacity .18s ease; }
         .formwork-link:hover .formwork-label, .formwork-link:focus-visible .formwork-label { opacity: 1; }
-        @media (max-width: 700px) { .formwork-label { font-size: 18px; } }
+        .discover-outline { fill: none; stroke: rgba(244,201,46,.72); stroke-width: 4; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 18 12; opacity: .62; pointer-events: none; animation: outline-drift 5s linear infinite, outline-breathe 3.5s ease-in-out infinite; }
+        .discover-hint { fill: var(--ink); font: 600 16px/1 sans-serif; letter-spacing: .04em; text-anchor: middle; opacity: .72; pointer-events: none; animation: hint-breathe 3.5s ease-in-out infinite; }
+        .formwork-link:hover .discover-outline, .formwork-link:focus-visible .discover-outline, .formwork-link:hover .discover-hint, .formwork-link:focus-visible .discover-hint { opacity: 0; animation-play-state: paused; transition: opacity .18s ease; }
+        @keyframes outline-drift { to { stroke-dashoffset: -60; } }
+        @keyframes outline-breathe { 0%, 100% { opacity: .4; } 50% { opacity: .78; } }
+        @keyframes hint-breathe { 0%, 100% { opacity: .5; } 50% { opacity: .82; } }
+        @media (prefers-reduced-motion: reduce) { .discover-outline, .discover-hint { animation: none; } }
+        @media (max-width: 700px) { .formwork-label { font-size: 18px; } .discover-hint { font-size: 13px; } }
     </style>
 </head>
 <body>
@@ -42,6 +49,8 @@
         <a class="formwork-link" href="formwork.html" aria-label="Open ĊUAĊ page">
             <title>ĊUAĊ: open Formwork</title>
             <g transform="translate(-55.92082320472713 360)">
+                <path class="discover-outline" d="M 600 780 L 660 660 L 900 660 L 660 780 L 600 780 M 660 780 L 900 660 L 900 720 L 660 840 Z" aria-hidden="true" />
+                <text class="discover-hint" x="750" y="875" aria-hidden="true">click to explore</text>
                 <path class="formwork-face" d="M 600 780 L 660 660 L 900 660 L 660 780 Z" />
                 <path class="formwork-face" d="M 660 780 L 900 660 L 900 720 L 660 840 Z" />
                 <path class="formwork-edge" d="M 600 780 L 660 660 L 900 660 L 660 780 L 660 840 L 900 720 L 900 660" />
