@@ -15,18 +15,16 @@
     h1 { max-width: 760px; margin: 0; font-size: clamp(4rem, 14vw, 11rem); line-height: .8; letter-spacing: -.08em; font-weight: 700; }
     .intro { display: grid; grid-template-columns: 1.3fr .7fr; gap: clamp(2rem, 8vw, 8rem); align-items: end; margin-bottom: clamp(4rem, 10vw, 9rem); }
     .intro p { max-width: 30rem; margin: 0 0 .4rem; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.55; }
-    .study { min-height: 420px; display: grid; place-items: center; margin-bottom: 2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; background: rgba(255,255,255,.2); }
-    .study svg { width: min(720px, 90%); height: auto; overflow: visible; }
-    .study polygon, .study path { fill: rgba(120,120,120,.12); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
-    .study .accent { fill: rgba(244,201,46,.5); }
+    .study { min-height: 420px; display: grid; place-items: center; margin-bottom: 2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; background: rgba(255,255,255,.25); }
+    .study img { display: block; width: min(720px, 90%); height: auto; max-height: 390px; object-fit: contain; }
     .details { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; border-bottom: 1px solid var(--line); padding-bottom: 2rem; }
     .details div { padding-top: 1rem; border-top: 2px solid var(--ink); }
     .details strong { display: block; margin-bottom: .5rem; font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; }
     .details span { color: var(--muted); line-height: 1.5; }
-    .commission-button { display: inline-block; margin-top: .75rem; padding: .65rem .9rem; border: 1px solid var(--orange); border-radius: 999px; background: rgba(243,156,18,.1); color: var(--ink); font-size: .85rem; font-weight: 700; text-decoration: none; transition: background .18s ease, color .18s ease, transform .18s ease; }
+    .commission-button { display: inline-block; margin-top: .75rem; padding: .65rem .9rem; border: 1px solid var(--orange); border-radius: 999px; background: rgba(243,156,18,.1); color: var(--ink); text-decoration: none; font-weight: 700; transition: background .18s ease, color .18s ease, transform .18s ease; }
     .commission-button:hover, .commission-button:focus-visible { background: var(--orange); color: #fff; transform: translateY(-2px); }
     .back { display: inline-block; margin-top: 2rem; }
-    @media (max-width: 700px) { .intro, .details { grid-template-columns: 1fr; } .intro { gap: 2rem; } .study { min-height: 300px; } }
+    @media (max-width: 700px) { .intro, .details { grid-template-columns: 1fr; } .intro { gap: 2rem; } .study { min-height: 300px; } .study img { max-height: 270px; } }
   </style>
 </head>
 <body>
@@ -34,18 +32,13 @@
     <nav><a href="index.html">← Flagship</a><span class="eyebrow">ĊUAĊ study 01</span></nav>
     <section class="intro"><div><h1>ĊUAĊ</h1></div><p>A study of spiral, from bíseach to biseach.</p></section>
     <section class="study" aria-label="ĊUAĊ geometric study">
-      <svg viewBox="0 0 600 360" role="img" aria-label="Angular ĊUAĊ drawing">
-        <polygon points="110,230 220,90 470,90 350,230" />
-        <polygon class="accent" points="110,230 350,230 410,290 170,290" />
-        <polygon points="350,230 470,90 470,170 410,290" />
-        <path d="M110 230 L220 90 L470 90 L350 230 L350 290" fill="none" />
-      </svg>
+      <img src="graph.svg" alt="Angular ĊUAĊ drawing" />
     </section>
     <section class="details">
       <div><strong>Focus</strong><span>Geometry and spatial construction</span></div>
       <div><strong>Method</strong><span>Live drawing and digital iteration</span></div>
       <div><strong>Format</strong><span>Original study</span></div>
-      <div><strong>Action</strong><a class="commission-button" href="https://docs.google.com/forms/d/e/1FAIpQLScaVocBcgfvOU0_-bpeqDYTWgMlpKdxInKFKGv7GEC0F1zCuw/viewform?usp=dialog" target="_blank" rel="noopener">Commission a ĊUAĊ</a></div>
+      <div><strong>Action</strong><a class="commission-button" href="https://docs.google.com/forms/d/e/1FAIpQLScaVocBcgfvOU0_-bpeqDYTWgMlpKdxInKFKGv7GEC0F1zCuw/viewform?usp=dialog" target="_blank" rel="noopener">Commission a piece</a></div>
     </section>
     <a class="back" href="index.html">More about ĊUAĊ →</a>
   </main>
