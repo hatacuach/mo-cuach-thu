@@ -12,8 +12,10 @@
     body { color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--paper); }
     body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: url("graph.svg") center / cover no-repeat; opacity: .16; }
     main { width: min(1240px, 100%); margin: auto; padding: clamp(1.25rem, 4vw, 4rem); }
-    nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: clamp(3rem, 8vw, 6rem); }
+    nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: clamp(3rem, 8vw, 6rem); }
     nav a { color: var(--ink); font-weight: 700; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 1.25rem; }
+    .nav-links a { font-size: .9rem; letter-spacing: .08em; text-transform: lowercase; }
     .eyebrow { color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
     h1 { max-width: 800px; margin: 0 0 1rem; color: #5d7565; font-family: Georgia, serif; font-size: clamp(3.5rem, 10vw, 8rem); font-weight: 400; line-height: .95; }
     .intro { max-width: 40rem; margin-bottom: clamp(3rem, 8vw, 6rem); color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.55; }
@@ -29,7 +31,13 @@
 </head>
 <body>
   <main>
-    <nav><a href="index.html">← Flagship</a><span class="eyebrow">Cuac / Crochet / Recent uploads</span></nav>
+    <nav>
+      <a href="index.html">← Flaghouse</a>
+      <div class="nav-links">
+        <a href="https://www.behance.net/howard-laura-ireland" target="_blank" rel="noopener noreferrer">¿diseño?</a>
+        <span class="eyebrow">Cuac / Crochet / Recent uploads</span>
+      </div>
+    </nav>
     <h1>Image gallery</h1>
     <p class="intro">A growing archive of recent work by Laura Howard. Every image is tagged with the Cuac, crochet, hat, Laura, and Howard keywords for a clearer, more discoverable collection.</p>
     <section class="gallery" aria-label="Recent Cuac crochet artwork">
