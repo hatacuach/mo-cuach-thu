@@ -43,8 +43,9 @@
         .piano-link { top: clamp(15rem, 36vh, 25rem); }
         .ukulele-link { top: calc(clamp(15rem, 36vh, 25rem) + 2.35rem); transform: rotate(3deg); }
         .design-link { top: calc(clamp(15rem, 36vh, 25rem) + 4.7rem); transform: rotate(-2deg); }
+        .cuac-link { top: calc(clamp(15rem, 36vh, 25rem) + 7.05rem); transform: rotate(2deg); }
         .music-link::before { content: "✦"; color: var(--neon-mix); font-size: .8em; opacity: .85; transition: transform .25s ease; }
-        .music-link::after { content: ""; position: absolute; left: 1.25rem; right: -.35rem; bottom: -.35rem; height: 1px; background: var(--neon-mix); opacity: .5; transform: scaleX(.35); transform-origin: left; transition: opacity .25s ease, transform .25s ease; }
+        .music-link::after { content: ""; position: absolute; left: 1.25rem; right: -.35rem; bottom: -.35rem; height: 1px; background: var(--neon-mix); opacity: .5; transform: scaleX(.35); transform-origin: left center; transition: transform .25s ease, opacity .25s ease; }
         .music-link:hover, .music-link:focus-visible { color: var(--ink); transform: rotate(0deg) translateY(-2px); text-shadow: 0 0 10px rgba(255,110,134,.45); outline: none; }
         .music-link:hover::before, .music-link:focus-visible::before { transform: rotate(25deg) scale(1.2); }
         .music-link:hover::after, .music-link:focus-visible::after { opacity: .9; transform: scaleX(1); }
@@ -56,14 +57,12 @@
         .formwork-link:hover .formwork-edge, .formwork-link:focus-visible .formwork-edge { stroke: rgba(255,141,71,.45); filter: drop-shadow(0 0 5px rgba(255,94,160,.4)); }
         .formwork-label { opacity: 0; pointer-events: none; font: 700 24px/1 sans-serif; fill: var(--ink); text-anchor: middle; transition: opacity .18s ease; }
         .formwork-link:hover .formwork-label, .formwork-link:focus-visible .formwork-label { opacity: 1; }
-        .discover-outline { fill: none; stroke: var(--neon-pink); stroke-width: 4; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 18 12; opacity: .95; pointer-events: none; animation: outline-drift 3s linear infinite, neon-flicker 5s ease-in-out infinite; }
-        .discover-hint { fill: #000; font: 600 16px/1 sans-serif; letter-spacing: .04em; text-anchor: middle; opacity: .86; pointer-events: none; animation: hint-breathe 3.5s ease-in-out infinite; }
-        .formwork-link:hover .discover-outline, .formwork-link:focus-visible .discover-outline, .formwork-link:hover .discover-hint, .formwork-link:focus-visible .discover-hint { opacity: 0; animation: none; }
+        .discover-outline { fill: none; stroke: var(--neon-pink); stroke-width: 4; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 18 12; opacity: .95; pointer-events: none; animation: outline-drift 9s linear infinite; }
+        .formwork-link:hover .discover-outline, .formwork-link:focus-visible .discover-outline { opacity: 0; animation: none; }
         @keyframes outline-drift { to { stroke-dashoffset: -60; } }
-        @keyframes neon-flicker { 0%, 12%, 18%, 42%, 100% { opacity: .95; filter: drop-shadow(0 0 3px var(--neon-pink)) drop-shadow(0 0 10px var(--neon-pink)); } 13%, 16%, 43%, 47% { opacity: .22; filter: none; } }
         @keyframes hint-breathe { 0%, 100% { opacity: .7; } 50% { opacity: 1; } }
-        @media (prefers-reduced-motion: reduce) { .discover-outline, .discover-hint, .music-link { animation: none; transition: none; } }
-        @media (max-width: 700px) { .formwork-label { font-size: 18px; } .discover-hint { font-size: 13px; } .piano-link { top: 27vh; left: 1.25rem; } .ukulele-link { top: calc(27vh + 2.35rem); left: 1.25rem; } .design-link { top: calc(27vh + 4.7rem); left: 1.25rem; } }
+        @media (prefers-reduced-motion: reduce) { .discover-outline, .music-link { animation: none; transition: none; } }
+        @media (max-width: 700px) { .formwork-label { font-size: 18px; } .piano-link { top: 27vh; left: 1.25rem; } .ukulele-link { top: calc(27vh + 2.35rem); left: 1.25rem; } .design-link { top: calc(27vh + 4.7rem); left: 1.25rem; } .cuac-link { top: calc(27vh + 7.05rem); left: 1.25rem; } }
     </style>
 </head>
 <body>
@@ -71,12 +70,12 @@
     <a class="music-link piano-link" href="https://howlaura.bandcamp.com/track/mlins" target="_blank" rel="noopener noreferrer">piano</a>
     <a class="music-link ukulele-link" href="https://howlaura.bandcamp.com/track/0" target="_blank" rel="noopener noreferrer">ukulele</a>
     <a class="music-link design-link" href="https://www.behance.net/howard-laura-ireland" target="_blank" rel="noopener noreferrer">diseño</a>
+    <a class="music-link cuac-link" href="formwork.html">ċuaċ</a>
 
     <svg class="artwork-hit-area" viewBox="0 0 1876.8950121543276 1440" preserveAspectRatio="xMidYMid slice" aria-label="Interactive ĊUAĊ shape">
         <a class="formwork-link" href="formwork.html" aria-label="Open ĊUAĊ page">
             <title>ĊUAĊ: open Formwork</title>
             <g transform="translate(-55.92082320472713 360)">
-                <text class="discover-hint" x="750" y="875" aria-hidden="true">click to explore</text>
                 <path class="formwork-face" d="M 600 780 L 660 660 L 900 660 L 660 780 Z" />
                 <path class="formwork-face" d="M 660 780 L 900 660 L 900 720 L 660 840 Z" />
                 <path class="formwork-edge" d="M 600 780 L 660 660 L 900 660 L 660 780 L 660 840 L 900 720 L 900 660" />
