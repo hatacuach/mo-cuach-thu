@@ -13,9 +13,11 @@
     body { min-height: 100vh; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--paper); position: relative; }
     body::before { content: ""; position: fixed; inset: 0; z-index: 0; background: url("graph.svg") center / cover no-repeat; opacity: .24; pointer-events: none; }
     .page { position: relative; z-index: 1; width: min(1180px, 100%); margin: auto; padding: clamp(1.25rem, 4vw, 4rem); }
-    nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: clamp(3rem, 9vw, 8rem); }
+    nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
     nav a, .back { color: var(--ink); text-decoration: none; font-weight: 700; }
     .eyebrow { margin: 0 0 1rem; color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .cuac-nav-button { display: inline-block; margin-bottom: clamp(3rem, 9vw, 8rem); padding: .5rem .8rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); text-decoration: none; font-weight: 700; }
+    .cuac-nav-button:hover, .cuac-nav-button:focus-visible { background: var(--ink); color: var(--paper); }
     h1 { max-width: 760px; margin: 0; color: var(--headline-green); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: clamp(4rem, 12vw, 9rem); line-height: 1; letter-spacing: -.06em; }
     .intro { display: grid; grid-template-columns: 1.3fr .7fr; gap: clamp(2rem, 8vw, 8rem); align-items: end; margin-bottom: clamp(4rem, 10vw, 9rem); }
     .intro p { max-width: 30rem; margin: 0 0 .4rem; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.55; }
@@ -33,6 +35,7 @@
 <body>
   <main class="page">
     <nav><a href="index.html">← Flaghouse</a><span class="eyebrow">ĊUAĊ study 01</span></nav>
+    <a class="cuac-nav-button" href="cuac.html">ĊUAĊ</a>
     <section class="intro"><div><h1>ĊUAĊ</h1></div><p>A study of spiral, from bíseach to biseach.</p></section>
     <section class="study" aria-label="ĊUAĊ geometric study">
       <img src="graph.svg" alt="Angular ĊUAĊ drawing" />
