@@ -48,6 +48,12 @@
         .music-link:hover, .music-link:focus-visible { color: var(--ink); transform: rotate(0deg) translateY(-2px); text-shadow: 0 0 10px rgba(255,110,134,.45); outline: none; }
         .music-link:hover::before, .music-link:focus-visible::before { transform: rotate(25deg) scale(1.2); }
         .music-link:hover::after, .music-link:focus-visible::after { opacity: .9; transform: scaleX(1); }
+        .beanie-art { position: fixed; top: clamp(6rem, 15vh, 10rem); right: clamp(1.5rem, 10vw, 10rem); z-index: 2; width: clamp(120px, 15vw, 190px); height: auto; pointer-events: none; filter: drop-shadow(0 12px 10px rgba(25, 45, 27, .2)); animation: beanie-float 6s ease-in-out infinite; }
+        .beanie-knit { fill: #174b2d; stroke: #0d2e1b; stroke-width: 3; stroke-linejoin: round; }
+        .beanie-highlight { fill: none; stroke: #347249; stroke-width: 4; stroke-linecap: round; opacity: .75; }
+        .beanie-shadow { fill: #0e351f; opacity: .8; }
+        .beanie-tassel { fill: #21623a; stroke: #0d2e1b; stroke-width: 2; }
+        @keyframes beanie-float { 0%, 100% { transform: translateY(0) rotate(4deg); } 50% { transform: translateY(-12px) rotate(-3deg); } }
         .artwork-hit-area { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
         .formwork-link { pointer-events: auto; cursor: pointer; outline: none; }
         .formwork-face { fill: rgba(110,110,110,.025); stroke: transparent; stroke-width: 8; vector-effect: non-scaling-stroke; transition: fill .18s ease, stroke .18s ease, filter .18s ease; }
@@ -62,8 +68,8 @@
         @keyframes outline-drift { to { stroke-dashoffset: -60; } }
         @keyframes neon-flicker { 0%, 12%, 18%, 42%, 100% { opacity: .95; filter: drop-shadow(0 0 3px var(--neon-pink)) drop-shadow(0 0 10px var(--neon-pink)); } 13%, 16%, 43%, 47% { opacity: .22; filter: none; } }
         @keyframes hint-breathe { 0%, 100% { opacity: .7; } 50% { opacity: 1; } }
-        @media (prefers-reduced-motion: reduce) { .discover-outline, .discover-hint, .music-link { animation: none; transition: none; } }
-        @media (max-width: 700px) { .formwork-label { font-size: 18px; } .discover-hint { font-size: 13px; } .piano-link { top: 27vh; left: 1.25rem; } .ukulele-link { top: calc(27vh + 2.35rem); left: 1.25rem; } .design-link { top: calc(27vh + 4.7rem); left: 1.25rem; } }
+        @media (prefers-reduced-motion: reduce) { .discover-outline, .discover-hint, .music-link, .beanie-art { animation: none; transition: none; } }
+        @media (max-width: 700px) { .formwork-label { font-size: 18px; } .discover-hint { font-size: 13px; } .piano-link { top: 27vh; left: 1.25rem; } .ukulele-link { top: calc(27vh + 2.35rem); left: 1.25rem; } .design-link { top: calc(27vh + 4.7rem); left: 1.25rem; } .beanie-art { top: 7rem; right: 1rem; width: 112px; } }
     </style>
 </head>
 <body>
@@ -71,6 +77,17 @@
     <a class="music-link piano-link" href="https://howlaura.bandcamp.com/track/mlins" target="_blank" rel="noopener noreferrer">piano</a>
     <a class="music-link ukulele-link" href="https://howlaura.bandcamp.com/track/0" target="_blank" rel="noopener noreferrer">ukulele</a>
     <a class="music-link design-link" href="https://www.behance.net/howard-laura-ireland" target="_blank" rel="noopener noreferrer">diseño</a>
+
+    <svg class="beanie-art" viewBox="0 0 220 190" role="img" aria-label="Floating deep green ear-flap beanie">
+        <path class="beanie-tassel" d="M26 116 C15 125 13 141 19 153 C25 164 39 165 48 155 C55 147 54 132 43 121 Z" />
+        <path class="beanie-tassel" d="M177 116 C188 125 190 141 184 153 C178 164 164 165 155 155 C148 147 149 132 160 121 Z" />
+        <path class="beanie-knit" d="M40 119 C38 94 47 63 67 43 C85 25 108 18 130 24 C161 32 179 60 181 97 L169 126 C143 139 76 139 51 126 Z" />
+        <path class="beanie-shadow" d="M41 113 C72 128 143 130 180 111 L169 134 C137 146 78 145 51 132 Z" />
+        <path class="beanie-highlight" d="M67 52 C56 70 53 88 55 108 M88 34 C75 59 72 84 74 112 M113 28 C104 55 103 86 104 116 M139 36 C133 59 135 88 137 115 M160 56 C155 75 158 96 160 108" />
+        <path class="beanie-highlight" d="M52 120 C81 132 142 133 171 120" />
+        <circle class="beanie-tassel" cx="29" cy="163" r="9" />
+        <circle class="beanie-tassel" cx="175" cy="163" r="9" />
+    </svg>
 
     <svg class="artwork-hit-area" viewBox="0 0 1876.8950121543276 1440" preserveAspectRatio="xMidYMid slice" aria-label="Interactive ĊUAĊ shape">
         <a class="formwork-link" href="formwork.html" aria-label="Open ĊUAĊ page">
