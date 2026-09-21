@@ -8,9 +8,8 @@
     :root {
       --paper: #f7f3ee;
       --ink: #1d1b1a;
-      --muted: #5e5852;
       --line: rgba(29, 27, 26, 0.15);
-      --soft: #e7dfd5;
+      --overlay: rgba(247, 243, 238, 0.88);
     }
 
     * { box-sizing: border-box; }
@@ -28,64 +27,67 @@
 
     .frame {
       width: min(820px, calc(100% - 2rem));
-      padding: 2rem 1.5rem 2.5rem;
+      padding: 1.5rem;
       background: rgba(255, 255, 255, 0.28);
       border: 1px solid var(--line);
       box-shadow: 0 12px 30px rgba(29, 27, 26, 0.06);
     }
 
+    nav { margin-bottom: 1.25rem; }
+
+    nav a {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a:focus-visible { text-decoration: underline; }
+
     .image-wrap {
-      width: 100%;
+      position: relative;
+      width: min(100%, 700px);
+      margin: 0 auto;
       overflow: hidden;
       border: 1px solid var(--line);
-      background: var(--soft);
+      background: var(--paper);
     }
 
     img {
       display: block;
       width: 100%;
       height: auto;
-      object-fit: cover;
     }
 
-    .caption {
-      margin-top: 1.25rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    h1 {
-      margin: 0 0 0.5rem;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      letter-spacing: 0.04em;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    p {
+    .image-description {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      left: 1rem;
+      max-height: calc(100% - 2rem);
+      overflow: auto;
       margin: 0;
-      font-size: 1.02rem;
-      max-width: 58ch;
+      padding: .9rem 1rem;
+      background: var(--overlay);
+      color: var(--ink);
+      font-size: clamp(.85rem, 1.5vw, 1rem);
+      line-height: 1.45;
+      text-wrap: pretty;
     }
   </style>
 </head>
 <body>
   <main class="frame">
-    <div class="image-wrap">
-      <img src="LAURA-HOWARD-DROGHEDA.jpg" alt="Laura Howard Drogheda portrait" />
-    </div>
+    <nav aria-label="Page navigation">
+      <a href="index.html">← Flaghouse</a>
+    </nav>
 
-    <div class="caption">
-      <h1>Laura Howard</h1>
-      <p>
-        This image feels like a quiet portrait caught between memory and presence. The face is composed but unsettled,
-        as though the subject is holding a thought just beyond the surface. The marks and tonal shifts suggest an
-        intimate, handmade process, giving the picture a raw, tactile quality. It has the feeling of a study made in
-        a moment of reflection: direct, human, and a little weathered by time, but full of character and emotional depth.
-      </p>
-    </div>
+    <figure class="image-wrap">
+      <img src="LAURA-HOWARD-DROGHEDA.jpg" alt="Laura sits at an imaginary city manager desk in Drogheda, wearing the cuac crochet hat." />
+      <figcaption class="image-description">
+        Laura sits at a imaginary city manager desk. With an old telephone with a dial pad, she sits talking to an imaginary friend. She wears the cuac, a dome shaped crochet hat. This cuac is made from aran cream coloured wool with a lavender marino thread going through. The lapels are made from two Isosceles triangles with the right angles to the fore. The tension of these forms make the material curl. In the background the text reads <em>help us build the future</em> and Drogheda City Now dot com.
+      </figcaption>
+    </figure>
   </main>
 </body>
 </html>
